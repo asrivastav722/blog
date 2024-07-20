@@ -28,7 +28,6 @@ app.post("/postbutton",(req,res)=>{
 });
 
 app.post("/editpost",(req,res)=>{
-    console.log(req.body);
     toEdit=req.body["editbutton"];
     res.render("changepostpage.ejs",{blogs,toEdit});    
 });
