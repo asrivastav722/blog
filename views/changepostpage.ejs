@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit your post here</h1>
+    <form action="/changepostbutton" method="post">
+        <label for="blog">Your blog:</label>
+        <input type="text" name="changeBlogValue" value=<%=blogs[toEdit].title%>>
+        <label for="content">Your Content:</label>
+        <input type="text" name="changeContentValue" value=<%=blogs[toEdit].content%> >
+        <input type="submit" value="POST">
+    </form>
+    
+</body>
+</html>

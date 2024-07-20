@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <!-- Header-------------------------------------------------------------------------------------------------------------------->
+    <div class = "header" >    
+        <h1 class = "heading" > Blogspot </h1>
+        <form action = "/createNew" method = "POST">
+            <input class = "createbtn" type = "submit" value = "+">
+        </form>
+    </div>
+
+    <!-- BlogArea------------------------------------------------------------------------------------------------------------------>
+    <div class = "grid-container">
+        <% if( blogs.length === 0) {%>
+            <h4 class="notice"> No Blogs to See, Click on top Right + Button to Create a New Post </h4>
+        <% } %>
+
+        <% if( locals.blogs ){ %>
+
+            <% for( i = 0 ; i < blogs.length ; i++) { %>
+                
+                <div class="blogcard">
+                    <p class = "datetime" > Posted On <%= blogs[i].date %> ,at <%= blogs[i].day %> </p>
+                    <p class = "blog" id = "blogtitle" > <%= blogs[i].title %> </p>
+                    <p class = "blog" id = "blogcontent" > <%= blogs[i].content %> </p>
+                    
+                    <div class = "buttonarea">
+                        <form action = "/editpost" method = "post">
+                            <input name = "editbutton" value= <%=i%> hidden >
+                            <input class = "button" id = "edit" type = "submit" value = "Edit">
+                        </form>
+                        <form action = "/deletepost" method = "post">
+                            <input name = "delbutton" value = <%=i%> hidden >
+                            <input class = "button" id = "del" type = "submit" value = "Delete">
+                        </form>  
+                    </div>
+                </div>    
+            <% } %>
+        <% } %>
+    </div>
+
+    <!-- Footer-------------------------------------------------------------------------------------------------------------------->
+    <div class = "footer">
+        <p ><a href="https://www.facebook.com/lamborghni.aventador/">Facebook</a>  </p>
+        <p><a href="https://www.instagram.com/raj_akash.141/">Instagram</a>  </p>
+        <p> <a href="https://github.com/asrivastav722">GitHub</a> </p>
+        <p><a href="https://www.linkedin.com/in/akash-raj722/">Linkedin</a>  </p>
+        <p><a href="https://x.com/asrivastav722">Twitter</a>  </p>
+        <p> @copyright <%= year %> </p>
+    </div>
+
+</body>
+
+</html>
