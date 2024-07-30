@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link class="styless" rel="stylesheet" href="<%=add%>">
 </head>
+
 <body>
-    <h1>Edit your post here</h1>
-    <form action="/changepostbutton" method="post">
-        <label for="blog">Your blog:</label>
-        <input type="text" name="changeBlogValue" value=<%=blogs[toEdit].title%>>
-        <label for="content">Your Content:</label>
-        <input type="text" name="changeContentValue" value=<%=blogs[toEdit].content%> >
-        <input type="submit" value="POST">
-    </form>
+
+<!-- Header-------------------------------------------------------------------------------------------------------------------->
+<%- include("partials/header.ejs")%>
+<div class="createpostarea">
     
+        <form class="createcard" action="/changepostbutton" method="post">
+            <h1 class="createheading">Edit post</h1>
+            <br>
+            <label class="labeltitle" for="Title">Title:</label>
+            <br>
+            <textarea class="inputtitle" type="text" name="changeBlogValue"  ><%=blogs[toEdit].title%> </textarea>
+            <br>
+            <label class="labelcontent"for="content">Description:</label>
+            <br>
+            <textarea cols="4" class="inputcontent" type="textbox" name="changeContentValue"  ><%=blogs[toEdit].content%> </textarea>
+            <br>
+            <div class="btns">
+                <input class="submitbutton" type="submit" value="Post">
+                <form action="discard" action="/discard" method="post">
+                    <input class="discardbtn" type="submit" value="Discard">
+                </form>    
+            </div>
+        </form>
+    
+</div>
+    <!-- Footer-------------------------------------------------------------------------------------------------------------------->
+    <%- include("partials/footer.ejs")%>
+    <script src="script.js"></script>
 </body>
+
 </html>
